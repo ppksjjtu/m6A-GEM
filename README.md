@@ -4,6 +4,8 @@
 
 m6A-GEM contains two models for *Arabidopsis thaliana*: a sequence-based model that scores candidate adenosines, and a context-aware model that predicts quantitative m6A-associated signal using local sequence, AgroNT gene embeddings, genotype and stress information.
 
+![Overview of the m6A-GEM context-aware quantitative model, adapted from Figure 1g.](assets/model_overview.png)
+
 This repository provides the core architectures, their original training definitions, pretrained inference weights and small real-data inference examples. The repository is being prepared for manuscript submission; the examples demonstrate inference, not full manuscript reproduction.
 
 ## Quick start

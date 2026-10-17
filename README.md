@@ -57,4 +57,4 @@ python quantitative/stage1_copper_normal_singlehead_tailbalanced_v1.py --help
 
 ## Pretrained models
 
-The candidate-site model uses the Epoch 8 checkpoint and the quantitative model uses Epoch 16. Download both from [Releases](https://github.com/ppksjjtu/m6A-GEM/releases/tag/v0.1.0-models). The demo checks their SHA-256 hashes against [`weights/pretrained_models.json`](weights/pretrained_models.json).
+Download the pretrained models from [Releases](https://github.com/ppksjjtu/m6A-GEM/releases/tag/v0.1.0-models). The demo checks their SHA-256 hashes against [`weights/pretrained_models.json`](weights/pretrained_models.json).

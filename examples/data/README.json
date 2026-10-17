@@ -29,7 +29,7 @@
       "observed_excess_cpm": "max(mean IP CPM - mean input/background CPM, 0), demo reference only"
     }
   },
-  "scope": "Two independent real input examples for inference checks; not an end-to-end raw sequencing pipeline or an accuracy benchmark.",
+  "scope": "Small real-data inputs for candidate-site scoring and context-aware quantitative prediction.",
   "candidate": {
     "sample_id": "positive_170884",
     "gene_id": "AT5G01010",

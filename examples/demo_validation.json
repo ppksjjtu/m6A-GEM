@@ -19,5 +19,5 @@
     "reference_comparison": "PASS"
   },
   "comparison": {"rtol": 0.0001, "atol": 0.00001},
-  "scope": "Both examples were run on real held-out inputs with inference checkpoints. This is an inference demonstration, not full-data training or manuscript reproduction."
+  "scope": "CPU inference verification on real held-out inputs with pretrained checkpoints."
 }

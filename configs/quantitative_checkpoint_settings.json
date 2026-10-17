@@ -1,5 +1,5 @@
 {
-  "_description": "Settings stored in the Epoch 16 checkpoint after resumed 5090 training; these are not a complete first-launch record.",
+  "_description": "Training settings stored in the Epoch 16 checkpoint.",
   "normal_track_id": "Sharma_2024_copper_control_excess_cpm",
   "allow_missing_intensity": false,
   "sequence_encoder_dim": 192,

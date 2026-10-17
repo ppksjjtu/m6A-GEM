@@ -2,15 +2,13 @@
 
 **Genetic–Environment Model of quantitative m6A landscapes.**
 
-m6A-GEM contains two models for *Arabidopsis thaliana*: a sequence-based model that scores candidate adenosines, and a context-aware model that predicts quantitative m6A-associated signal using local sequence, AgroNT gene embeddings, genotype and stress information.
+m6A-GEM models m6A-associated signals in *Arabidopsis thaliana* using two components: a sequence-based candidate-site model and a quantitative model integrating local sequence, AgroNT gene embeddings, genotype and stress information.
 
-![Overview of the m6A-GEM context-aware quantitative model, adapted from Figure 1g.](assets/model_overview.png)
-
-This repository provides the core architectures, their original training definitions, pretrained inference weights and small real-data inference examples. The repository is being prepared for manuscript submission; the examples demonstrate inference, not full manuscript reproduction.
+![Overview of the m6A-GEM context-aware quantitative model.](assets/model_overview.png)
 
 ## Quick start
 
-Python 3.10 and a CPU are sufficient for the examples. From an environment with GitHub CLI access to this private repository:
+Use Python 3.10 and PyTorch 2.6. Authenticate with `gh auth login`, then run:
 
 ```bash
 gh repo clone ppksjjtu/m6A-GEM
@@ -20,40 +18,36 @@ gh release download v0.1.0-models --repo ppksjjtu/m6A-GEM --dir weights --patter
 python examples/run_demo.py --model all --verify
 ```
 
-If needed, run `gh auth login` first. You can also download the two `.pt` assets from the repository's **Releases** page and put them in `weights/`. Download access follows the repository's visibility.
+Predictions are saved to `outputs/demo/candidate_predictions.csv` and `outputs/demo/quantitative_predictions.csv`. The `--verify` option compares them with the supplied reference outputs. Run either model individually with `--model candidate` or `--model quantitative`.
 
-The command writes `outputs/demo/candidate_predictions.csv` and `outputs/demo/quantitative_predictions.csv`, and checks them against the expected outputs included in the repository. CPU time and verification status are printed for each model. Individual examples can be run with `--model candidate` or `--model quantitative`.
-
-## What is included
+## Repository structure
 
 | Directory | Contents |
 |---|---|
-| `candidate_site/` | 13-block ConvMetaFormer candidate-site architecture, trainer and ROC/PR evaluation script |
-| `quantitative/` | Local sequence Transformer, genotype–stress FiLM, gene-context Transformer, hurdle decoder, dataset definitions and trainer |
-| `configs/` | Architecture, condition vocabulary and recorded training settings |
-| `examples/` | Small real held-out inputs, inference code and expected predictions |
-| `weights/` | Checkpoint manifest and download instructions; binary weights are Release assets |
+| `candidate_site/` | Candidate-site model and training code |
+| `quantitative/` | Context-aware quantitative model and training code |
+| `configs/` | Architecture, training settings and condition vocabulary |
+| `examples/` | Example inputs, inference code and reference outputs |
+| `weights/` | Pretrained model manifest and download instructions |
 
-The quantitative model is called `Stage1` in historical source filenames. In the manuscript's two-stage framework it is the second component, after candidate-site selection. The original model definitions and training objectives are preserved.
+## Inputs and outputs
 
-## Example inputs and outputs
+The candidate-site example uses a sequence window from `AT5G01010` and outputs adenosine probabilities. `sequence_offset0` is the zero-based position within the supplied sequence.
 
-The candidate-site example uses a strand-oriented chromosome 5 sequence window from `AT5G01010`. It outputs probabilities for adenosines inside the specified target region. `sequence_offset0` is a zero-based index in the supplied sequence, not a genomic coordinate.
+The quantitative example uses all ten candidates from `AT5G06190`, including their 401-nt sequence windows, site features and a 1,500-dimensional AgroNT gene embedding, to predict the Col-0 / unstressed context. Input definitions are in [`examples/data/README.json`](examples/data/README.json).
 
-The quantitative example retains all ten candidates from the held-out chromosome 5 gene `AT5G06190`, together with their 401-nt mature-transcript sequence windows, region and numerical features, and a 1,500-dimensional precomputed AgroNT gene embedding. It predicts the Col-0 / unstressed context. Details are in [`examples/data/README.json`](examples/data/README.json).
-
-The quantitative decoder returns signal-presence probability and positive intensity. With the recorded `log1p` target transform:
+The quantitative output includes presence probability, positive intensity and expected intensity:
 
 ```text
 positive_intensity = expm1(softplus(intensity_logit))
 expected_intensity = presence_probability * positive_intensity
 ```
 
-Intensity is the model's prediction of non-negative IP-minus-background excess CPM. It is a signal proxy, not a methylation fraction. The two examples are independent model inputs; they do not implement a complete raw-sequencing-to-prediction pipeline.
+Predicted intensity is expressed as non-negative IP-minus-background excess CPM.
 
 ## Training
 
-For the original training scripts and their arguments:
+Install the training dependencies and view the available arguments:
 
 ```bash
 python -m pip install -r requirements-training.txt
@@ -61,14 +55,6 @@ python candidate_site/29_train_atlas_rmbase_sac_support1_metaformer.py --help
 python quantitative/stage1_copper_normal_singlehead_tailbalanced_v1.py --help
 ```
 
-Training requires the complete processed data and appropriate hardware; those inputs are not bundled with the small examples. `configs/quantitative_checkpoint_settings.json` records the settings stored in the final Epoch 16 checkpoint after resumed training, rather than a complete first-launch history.
+## Pretrained models
 
-## Model weights and validation
-
-The candidate-site checkpoint is from Epoch 8 and the quantitative checkpoint from Epoch 16. Release files contain the inference state and necessary configuration, with optimizer and gradient-scaler state removed. Network tensors are preserved. SHA-256 hashes are recorded in [`weights/pretrained_models.json`](weights/pretrained_models.json) and checked before inference.
-
-The demo is intended to run with the reference PyTorch 2.6 / Python 3.10 environment. `--verify` compares all demo predictions with a saved CPU reference using `rtol=1e-4` and `atol=1e-5`. Full-data evaluation, manuscript analyses and additional preprocessing documentation will be added separately.
-
-## License and citation
-
-A software license and the manuscript citation will be added before public release. No publication DOI or archival DOI has been assigned in this repository.
+The candidate-site model uses the Epoch 8 checkpoint and the quantitative model uses Epoch 16. Download both from [Releases](https://github.com/ppksjjtu/m6A-GEM/releases/tag/v0.1.0-models). The demo checks their SHA-256 hashes against [`weights/pretrained_models.json`](weights/pretrained_models.json).

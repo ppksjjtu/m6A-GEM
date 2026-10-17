@@ -1,0 +1,18 @@
+{
+  "genotype": {
+    "<UNK>": 0,
+    "35S:ALKBH10B": 1,
+    "Col-0": 2,
+    "mta": 3
+  },
+  "condition": {
+    "<UNK>": 0,
+    "unstressed": 1,
+    "Pst_DC3000": 2,
+    "cold": 3,
+    "copper": 4,
+    "drought": 5,
+    "flg22": 6,
+    "salt": 7
+  }
+}

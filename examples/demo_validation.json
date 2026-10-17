@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-17",
+  "environment": {
+    "python": "3.10.20",
+    "torch": "2.6.0+cu124",
+    "device": "cpu",
+    "torch_threads": 1
+  },
+  "candidate": {
+    "best_epoch": 8,
+    "n_predictions": 285,
+    "strict_checkpoint_load": "PASS",
+    "reference_comparison": "PASS"
+  },
+  "quantitative": {
+    "best_epoch": 16,
+    "n_predictions": 10,
+    "strict_checkpoint_load": "PASS",
+    "reference_comparison": "PASS"
+  },
+  "comparison": {"rtol": 0.0001, "atol": 0.00001},
+  "scope": "Both examples were run on real held-out inputs with inference checkpoints. This is an inference demonstration, not full-data training or manuscript reproduction."
+}

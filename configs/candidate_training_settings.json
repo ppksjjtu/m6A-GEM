@@ -1,0 +1,20 @@
+{
+  "seq_len": 1400,
+  "d_model": 192,
+  "n_layers": 13,
+  "kernel_size": 9,
+  "dropout": 0.15,
+  "mlp_ratio": 4.0,
+  "batch_size": 128,
+  "epochs": 40,
+  "lr": 0.0002,
+  "weight_decay": 0.0001,
+  "num_workers": 12,
+  "patience": 8,
+  "window_aux_weight": 0.2,
+  "seed": 17,
+  "device": "cuda",
+  "amp": true,
+  "max_train_batches": 0,
+  "max_eval_batches": 0
+}

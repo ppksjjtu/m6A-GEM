@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+.venv/
+weights/*.pt
+outputs/
+*.tar.gz
+*.zip
+.DS_Store
+Thumbs.db

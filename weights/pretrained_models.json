@@ -1,0 +1,22 @@
+{
+  "repository": "ppksjjtu/m6A-GEM",
+  "release_tag": "v0.1.0-models",
+  "models": {
+    "candidate_site_epoch8.pt": {
+      "model_type": "candidate",
+      "best_epoch": 8,
+      "sha256": "78f7194ce88aed76c2178cd5766f9aca22e5c783a255e50cc78dc5a8c6575865",
+      "bytes": 19905034,
+      "source_checkpoint_sha256": "8aacac607c3ba2829d67f28abe6793aa60e54f080aaeca0760a1e23c57bad7f1",
+      "format": "inference state and configuration; optimizer/scaler removed; tensors unchanged"
+    },
+    "quantitative_epoch16.pt": {
+      "model_type": "quantitative",
+      "best_epoch": 16,
+      "sha256": "a27cb8b8e343bdb87dd0fbd9a3a645f3478d1a58a139c8a64b5f3147490c62d2",
+      "bytes": 57943853,
+      "source_checkpoint_sha256": "d02c26c4a4e94f539a9ee988a59078bb17026879499dc682a18a77078ef50770",
+      "format": "inference state and configuration; optimizer/scaler removed; tensors unchanged"
+    }
+  }
+}

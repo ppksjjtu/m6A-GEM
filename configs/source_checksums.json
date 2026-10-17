@@ -1,0 +1,54 @@
+[
+  {
+    "path": "candidate_site/29_train_atlas_rmbase_sac_support1_metaformer.py",
+    "sha256": "341689ee247a9184fc9b78c53d70ad660fff60473d4ca193bfa1a5e31674d65d"
+  },
+  {
+    "path": "candidate_site/30_plot_test_roc_pr_curves.py",
+    "sha256": "2472507ec67f9b7d72cd08e9774df036e0d7ca46297c0fa701f243a608e8b1ac"
+  },
+  {
+    "path": "candidate_site/models/__init__.py",
+    "sha256": "186a2ba890832d3f1e69bf9961f3f23e8e789654fd7c1fac4770c89a1a821a80"
+  },
+  {
+    "path": "candidate_site/models/m6a_site_sac_metaformer.py",
+    "sha256": "523a42d481739cfc1cc9ba3f4bec3fd76707338916c340194f37cf2a42431e98"
+  },
+  {
+    "path": "quantitative/datasets/__init__.py",
+    "sha256": "0854d54541d913019a5ae1f7357315f8bf7e6e7a1209dcd3a1521e87be066d33"
+  },
+  {
+    "path": "quantitative/datasets/candidate_m6a_gene_context_dataset.py",
+    "sha256": "ea9da41ebb77dc10b31eb7ad554f61b46695ba4a0030b8f8d38c18f3b9f1cff8"
+  },
+  {
+    "path": "quantitative/datasets/candidate_m6a_mil_dataset.py",
+    "sha256": "9c426e6c7d4f1c124f3b37171870be4dddf9df8e4507e348be48bb6bfeafbd0d"
+  },
+  {
+    "path": "quantitative/models/__init__.py",
+    "sha256": "1d298b415d23ce324c7244e28c1161998b69964af43af035c2a9a8129ae78784"
+  },
+  {
+    "path": "quantitative/models/candidate_m6a_calibration_model.py",
+    "sha256": "76357f9879f8764a42ad57072192e0b65ac3c979e1471d024e27ee54ac743f46"
+  },
+  {
+    "path": "quantitative/models/candidate_m6a_large_condition_model.py",
+    "sha256": "3aa7a0ffb16512c5a37371f02e5a72e3cf5f3504f098678296371c8a40a53fcc"
+  },
+  {
+    "path": "quantitative/models/candidate_m6a_transformer_condition_model.py",
+    "sha256": "76925dfe740cfc153815e79e65485f13344158205f946aaa63ab434e98d8d988"
+  },
+  {
+    "path": "quantitative/models/m6a_candidate_intensity_singlehead_hurdle_model.py",
+    "sha256": "cc60d5a0a08a4dbbd9df465b0d73d21731b1057a078be6af9dc4d49d653d6063"
+  },
+  {
+    "path": "quantitative/stage1_copper_normal_singlehead_tailbalanced_v1.py",
+    "sha256": "87465178eb13a6fd72d3738f10192caa2febc18292db115f360e2d2afc18b04f"
+  }
+]

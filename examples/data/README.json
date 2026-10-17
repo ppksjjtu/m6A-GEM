@@ -1,0 +1,40 @@
+{
+  "quantitative": {
+    "gene_id": "AT5G06190",
+    "split": "Chr5 test",
+    "n_candidates": 10,
+    "context": "Col-0 / unstressed",
+    "genotype_id": 2,
+    "condition_id": 1,
+    "observed_track_id": "Sharma_2024_copper_control_excess_cpm",
+    "source_dataset": "stage1_candidate_intensity_allcase_scratch401_v1",
+    "source_candidate_indices": [
+      923371,
+      923372,
+      923373,
+      923374,
+      923375,
+      923376,
+      923377,
+      923378,
+      923379,
+      923380
+    ],
+    "scope": "All candidates from this gene are retained in original order; no candidate subsampling.",
+    "arrays": {
+      "sequence_tokens": "[N,401], A=0 C=1 G=2 T/U=3 N=4",
+      "numeric_features": "[N,3]: relative_position,is_drach,is_rrach",
+      "gene_embedding": "[1500], precomputed AgroNT gene embedding",
+      "region_ids": "5UTR=0 CDS=1 3UTR=2 other=3",
+      "observed_excess_cpm": "max(mean IP CPM - mean input/background CPM, 0), demo reference only"
+    }
+  },
+  "scope": "Two independent real input examples for inference checks; not an end-to-end raw sequencing pipeline or an accuracy benchmark.",
+  "candidate": {
+    "sample_id": "positive_170884",
+    "gene_id": "AT5G01010",
+    "split": "Chr5 test",
+    "source_dataset": "Atlas/RMBase + SAC support>=1 peak-window dataset",
+    "coordinates": "0-based, half-open; output sequence_offset0 is relative to the supplied strand-oriented sequence, not a genomic coordinate."
+  }
+}

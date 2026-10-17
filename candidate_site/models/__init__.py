@@ -1,0 +1,1 @@
+"""Candidate-site model definitions."""

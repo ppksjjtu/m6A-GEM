@@ -1,0 +1,31 @@
+{
+  "candidate_site_model": {
+    "class": "M6ASiteSACMetaFormer",
+    "seq_len": 1400,
+    "d_model": 192,
+    "n_layers": 13,
+    "kernel_size": 9,
+    "dropout": 0.15,
+    "mlp_ratio": 4.0,
+    "best_epoch": 8
+  },
+  "quantitative_model": {
+    "class": "CandidateIntensitySingleHeadHurdleModel",
+    "sequence_length": 401,
+    "sequence_encoder_dim": 192,
+    "sequence_encoder_layers": 6,
+    "sequence_transformer_heads": 8,
+    "sequence_transformer_ffn_multiplier": 4,
+    "region_embedding_dim": 24,
+    "numeric_feature_dim": 3,
+    "gene_embedding_dim": 1500,
+    "hidden_dim": 384,
+    "transformer_layers": 4,
+    "transformer_heads": 8,
+    "transformer_ffn_multiplier": 4,
+    "gene_token_count": 4,
+    "dropout": 0.15,
+    "target_transform": "log1p",
+    "best_epoch": 16
+  }
+}
